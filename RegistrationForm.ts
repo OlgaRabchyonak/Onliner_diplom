@@ -91,11 +91,3 @@ class RegistrationForm {
 
 export let emptyUserForRegistration = new RegistrationForm(null, null, null, null, false, false);
 
-// const Form = new RegistrationForm();
-// Form.setEmail("fghj@fghj.ru")
-// Form.setPassword("sdfghjkl41")
-// Form.setUsername("Jkmnhyuik")
-// Form.setAge(6)
-// Form.agreeWithTerms(true)
-// Form.register();
-// console.log(Form)
