@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test":"npx playwright test --headed",
+    "test-headless":"npx playwright test"
   },
   "author": "",
   "license": "ISC",
@@ -13,5 +14,8 @@
     "node": "^21.7.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.42.1"
   }
 }

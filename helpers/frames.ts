@@ -1,0 +1,1 @@
+export const quichSearchIframeLinkLocator = "//iframe[contains(@class, 'modal-iframe')]";
