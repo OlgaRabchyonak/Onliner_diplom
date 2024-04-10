@@ -16,13 +16,13 @@ describe ("tests for checking email", () => {
     test("entering an email without domain name", () => {      
         let result = emptyUserForRegistration.setEmail(emailWithoutDomainName);
         expect(result).toEqual(validationTextForInvalidEmail);
-        expect(emptyUserForRegistration.email).toBeNull;
+        expect(emptyUserForRegistration.email).toBeNull();
     });
     //negative
     test("entering an email without a dot", () => {      
         let result = emptyUserForRegistration.setEmail(emailWithoutDot);
         expect(result).toEqual(validationTextForInvalidEmail);
-        expect(emptyUserForRegistration.email).toBeNull;
+        expect(emptyUserForRegistration.email).toBeNull();
     });
 describe ("tests for checking password", () => {
     //positive
@@ -34,20 +34,20 @@ describe ("tests for checking password", () => {
     test("entering a password without using numbers", () => {
         let result = emptyUserForRegistration.setPassword(invalidPassWithoutNum);
         expect(result).toEqual(validationTextForInvalidPass);
-        expect(emptyUserForRegistration.password).toBeNull;
+        expect(emptyUserForRegistration.password).toBeNull();
     });
     //negative
     test("enter a password of less than 8 characters", () => {
         let result = emptyUserForRegistration.setPassword(invalidPassLess8);
         expect(result).toEqual(validationTextForInvalidPass);
-        expect(emptyUserForRegistration.password).toBeNull;
+        expect(emptyUserForRegistration.password).toBeNull();
     });
 });
 describe ("tests for checking username", () => {
     //positive
     test("entering a valid username ", () => {
         emptyUserForRegistration.setUsername(validUsernameForReg);
-        expect(emptyUserForRegistration.username).not.toBeNull;
+        expect(emptyUserForRegistration.username).not.toBeNull();
         expect(emptyUserForRegistration.username).toEqual(validUsernameForReg);
     });
     //negative
