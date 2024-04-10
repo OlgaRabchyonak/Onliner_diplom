@@ -3,6 +3,7 @@ import { MainPage } from '../pages/mainPage';
 import { getRandomInt } from '../helpers/randomHelper';
 import { testCurrency } from '../helpers/dataForExchangeCurrency';
 import { emailForRegistration,  expectedTextOfButton,  passwordForRegistration } from '../helpers/dataForRegistration';
+import { urlForNotebookCagalogPage } from '../helpers/contants';
 //import { testUserLogin, testUserPassword, userToken } from '../data/userData';
 
 test.describe("Onliner Test", async () => {
@@ -51,6 +52,20 @@ test.describe("Onliner Test", async () => {
     let productPage = await quickSearchFrame.goToProductPage();
     let actualProductTitle = await productPage.getProductTitle();
     expect(actualProductTitle).toContain("Apple iPhone 15 Pro Max");
+  });
+
+  test('Catalog page filtering', async () => {
+    let catalogPage = await mainPage.openCatalogPage();
+    await catalogPage.selectItemCategory();
+    await catalogPage.selectCertainCategoty();
+    await catalogPage.getPageUrl();
+    await catalogPage.getPageTitle();
+    await catalogPage.selectFilters();
+    let actualNumbersOfAppliedFilters = await catalogPage.checkAppliedFilters();
+    expect(actualNumbersOfAppliedFilters).toBe(2);
+    await catalogPage.removeFilter();
+    let numbersOfAppliedFiltersRemaining = await catalogPage.checkRemainingFilters();
+    expect(numbersOfAppliedFiltersRemaining).toBe(1);
   });
 
 });
