@@ -46,18 +46,17 @@ export class ProductPage extends BasePage {
      async addToCart() {
         await this.cartButton.first().click();
      };
-    //  async goToCart(): Promise<CartPage> {  // через поп ап
-    //     await this.page.waitForTimeout(3000);
-    //     await this.cartLink.click();
-
-    //     return new CartPage(this.page);
-    //  };
-
-     async goToCart(): Promise<CartPage> { // через значок корзины
-        await this.iconCart.click();
+     async goToCart(): Promise<CartPage> {  // через поп ап
+        await this.cartLink.click();
 
         return new CartPage(this.page);
      };
+
+    //  async goToCart(): Promise<CartPage> { // через значок корзины
+    //     await this.iconCart.click();
+
+    //     return new CartPage(this.page);
+    //  };
     
 }
 

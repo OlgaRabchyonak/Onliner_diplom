@@ -22,8 +22,8 @@ export class AutoPage extends BasePage {
         await this.linkToArticle.first().click(); 
     };
     async findNumberofReactions(): Promise<any> {
-        await this.numberOfReactions.waitFor( {timeout: 3000} ) 
-        return (await this.numberOfReactions.textContent())
+        await this.page.waitForTimeout(2000)
+        return (await this.numberOfReactions.textContent());
     };
     async giveReaction() {
         await this.reactionButton.click(); 

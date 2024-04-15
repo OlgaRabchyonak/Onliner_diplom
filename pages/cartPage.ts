@@ -61,13 +61,14 @@ export class CartPage extends BasePage {
      };
      async enterDataForRegistationAnOrder(street: string, house: string, name: string, phone: string,) {
         await this.streetInput.fill(street);
-        await this.page.waitForTimeout(2000);
+        await this.page.waitForTimeout(3000);
         await this.streetInput.press('Enter');
         await this.houseInput.fill(house);
         await this.nameInput.fill(name);
         await this.phoneInput.fill(phone); 
      };
      async goToPaymentTypes() {
+        await this.page.waitForTimeout(3000);
         await this.buttonToPaymentsTypes.click();
      };
 
