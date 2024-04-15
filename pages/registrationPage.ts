@@ -1,6 +1,6 @@
 import { expect } from "@playwright/test";
 import { BasePage } from "./page";
-import { expectedTextOfButton } from "../helpers/dataForRegistration";
+import { expectedTextOfButton } from "../data/dataForRegistration";
 
 export class RegistrationPage extends BasePage {
     //Locators
@@ -9,7 +9,7 @@ export class RegistrationPage extends BasePage {
     private linkToEnterPasswordRepeatLocator = '//*[contains (@class, "auth-input_primary") and contains(@placeholder, "Повторите пароль")]';
     private linkToCheckBoxAgreementLocator = '//*[contains (@class, "auth-checkbox__faux")]';
     private linkToCreateAccountLocator = '//*[contains (@class, "auth-button_primary") and contains(text(), "Зарегистрироваться")]';
-    private buttonToConfirmDataLinkLocator = '//a[contains (@class, "auth-button")]';
+    private buttonToConfirmDataLinkLocator = '//a[contains (@class, "auth-button") and contains(text(), "Перейти в почту")]';
 
     //// Elements
     private get linkToEnterEmail() {
@@ -40,13 +40,12 @@ export class RegistrationPage extends BasePage {
     };
     async createAccount() {
         await this.linkToCreateAccount.click();
-        await this.page.waitForTimeout(3000);
     };
 
-    async checkExistenceOfButton() {
-        expect(this.buttonToConfirmDataLink).toBeVisible();
-        let textOfButton = await this.buttonToConfirmDataLink.textContent();
-        expect(textOfButton).toContain(expectedTextOfButton);
+    async checkExistenceOfButton(): Promise<any> {
+       // await this.buttonToConfirmDataLink.waitFor( {state: "visible", timeout: 3000})
+        return (await this.buttonToConfirmDataLink.textContent());
+       // expect(textOfButton).toContain(expectedTextOfButton);
     };
 };
 

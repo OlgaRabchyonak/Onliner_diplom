@@ -2,10 +2,10 @@
 import { ConverterPage } from "./converterPage";
 import { BasePage } from "./page";
 import { LoginPage } from "./loginPage";
-import { expect } from "@playwright/test";
 import { QuickSearchFrame } from "./iframe/quickSearchFrame";
-import { quichSearchIframeLinkLocator } from "../helpers/frames";
+import { quichSearchIframeLinkLocator } from "../data/frames";
 import { CatalogPage } from "./catalogPage";
+import { AutoPage } from "./autoPage";
 
 
 export class MainPage extends BasePage {
@@ -16,6 +16,8 @@ export class MainPage extends BasePage {
     private searchFieldLinkLocator = "//*[contains(@class, 'fast-search__input')]";
     private categoryLinkLocator = "(//div[contains(@class, 'result__item_category')])[1]";
     private catalogLinkLocator = "//span[contains(@class, 'b-main-navigation__text') and (text() = 'Каталог')]";
+    private autoSectionLocator = "//div[contains(@class, 'b-main-page-grid-4')]//*[contains(text(), 'Авто')]";
+    
     // Elements
     private get currencyRateLink() {
         return this.page.locator(this.currenncyRateLinkLocator);
@@ -31,6 +33,9 @@ export class MainPage extends BasePage {
     };
     private get catalogLink() {
         return this.page.locator(this.catalogLinkLocator);
+    };
+    private get autoSection() {
+        return this.page.locator(this.autoSectionLocator);
     };
     // Methods
     async openConverterPage(): Promise<ConverterPage> {
@@ -53,5 +58,9 @@ export class MainPage extends BasePage {
 
         return new CatalogPage(this.page);
     };
+    async openAutoSection(): Promise<AutoPage> {
+        await this.autoSection.click(); 
 
+        return new AutoPage(this.page);
+    };
 };

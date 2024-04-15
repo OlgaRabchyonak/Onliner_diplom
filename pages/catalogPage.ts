@@ -1,6 +1,6 @@
 import { expect } from "@playwright/test";
 import { BasePage } from "./page";
-import { pageTitleForNotebookCagalogPage, urlForNotebookCagalogPage } from "../helpers/contants";
+import { pageTitleForNotebookCagalogPage, urlForNotebookCagalogPage } from "../data/contants";
 
 export class CatalogPage extends BasePage {
     
