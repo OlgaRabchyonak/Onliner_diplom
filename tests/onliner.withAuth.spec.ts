@@ -4,8 +4,7 @@ import { getRandomInt } from '../helpers/randomHelper';
 import { testCurrency } from '../data/dataForExchangeCurrency';
 import { mainUrl, } from '../data/contants';
 import {  houseNumber, itemForSearching, pageName, personName, phoneNumber, streetName, userToken } from '../data/userData';
-import { time, timeLog } from 'console';
-import { TIMEOUT } from 'dns';
+
 
 
 test.describe("Onliner Test with Auth", async () => {
@@ -41,7 +40,7 @@ test.describe("Onliner Test with Auth", async () => {
     await page.reload();
   });
 
-  test.skip('Opportunity to rate the article', async () => {
+  test('Opportunity to rate the article', async () => {
     let autoPage = await mainPage.openAutoSection();
     await autoPage.openFirstArticle();
     let numberofReactionsBeforeClicking = +(await autoPage.findNumberofReactions());
@@ -66,7 +65,7 @@ test.describe("Onliner Test with Auth", async () => {
   });
 
 
-  test.skip('Placing an order (before payment)', async () => {
+  test('Placing an order (before payment)', async () => {
     let quickSearchFrame = await mainPage.fillSeachItem(itemForSearching);
     let productPage = await quickSearchFrame.goToProductPage();
     await productPage.goToSellersOffers();
