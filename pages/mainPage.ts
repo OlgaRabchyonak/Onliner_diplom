@@ -59,7 +59,7 @@ export class MainPage extends BasePage {
         return new CatalogPage(this.page);
     };
     async openAutoSection(): Promise<AutoPage> {
-        await this.autoSection.click(); 
+        await this.autoSection.first().click(); 
 
         return new AutoPage(this.page);
     };

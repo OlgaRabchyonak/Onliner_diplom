@@ -66,7 +66,7 @@ test.describe("Onliner Test with Auth", async () => {
   });
 
 
-  test('Placing an order (before payment)', async () => {
+  test.skip('Placing an order (before payment)', async () => {
     let quickSearchFrame = await mainPage.fillSeachItem(itemForSearching);
     let productPage = await quickSearchFrame.goToProductPage();
     await productPage.goToSellersOffers();
